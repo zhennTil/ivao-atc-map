@@ -1,18 +1,11 @@
 import { AtcBookingsPaginatedDto, AtcBookingsDto } from '../../../src/modules/types/atcBookings.dto';
-import { Env, IVAO_BASE_API_URL, getToken } from '../../common';
+import { Env, RESPONSE_OPTS, fetchFromIvao, getToken } from '../../common';
 
 const BOOKING_RESULTS_PER_PAGE = 50;
 
 
 const fetchBookings = async (day: string, page: number, bearer: string) => {
-    const bookingsResponse = await fetch (
-        `${IVAO_BASE_API_URL}/v2/atc/bookings?date=${day}&perPage=${BOOKING_RESULTS_PER_PAGE}&page=${page}`, 
-        {
-            headers: {
-                Authorization: `Bearer ${bearer}`
-            },
-        }
-    );
+    const bookingsResponse = await fetchFromIvao(`/v2/atc/bookings?date=${day}&perPage=${BOOKING_RESULTS_PER_PAGE}&page=${page}`, bearer);
     return await bookingsResponse.json<AtcBookingsPaginatedDto>();
 }
 
@@ -34,5 +27,5 @@ export const onRequest: PagesFunction<Env> = async ({env, params}) => {
         results = results.concat(bookingsJson.items.map(b => {const { user, ...rest } = b; return rest;}));
     }
 
-    return Response.json(results);
+    return Response.json(results, RESPONSE_OPTS);
 }
