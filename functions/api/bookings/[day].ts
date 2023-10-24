@@ -1,5 +1,5 @@
 import { AtcBookingsPaginatedDto, AtcBookingsDto } from '../../../src/modules/types/atcBookings.dto';
-import { Env, RESPONSE_OPTS, fetchFromIvao, getToken } from '../../common';
+import { Env, fetchFromIvao, getToken } from '../../common';
 
 const BOOKING_RESULTS_PER_PAGE = 50;
 
@@ -27,5 +27,7 @@ export const onRequest: PagesFunction<Env> = async ({env, params}) => {
         results = results.concat(bookingsJson.items.map(b => {const { user, ...rest } = b; return rest;}));
     }
 
-    return Response.json(results, RESPONSE_OPTS);
+    return Response.json(results, {headers: {
+        "Cache-Control": "public, max-age=120, s-maxage=120"
+    }});
 }

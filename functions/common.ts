@@ -4,8 +4,8 @@ const TOKEN_REFRESH_THRESHOLD_SECONDS = 30;
 
 export const IVAO_BASE_API_URL = "https://api.ivao.aero";
 export const IVAO_ACCESS_TOKEN_URL = "https://api.ivao.aero/v2/oauth/token";
-export const RESPONSE_OPTS = {headers: {
-    "Cache-Control": "public, max-age=120, s-maxage=120"
+export const LONG_CACHE_RESPONSE_OPTS = {headers: {
+    "Cache-Control": "public, max-age=3600, s-maxage=3600"
 }};
 
 export interface Env {
