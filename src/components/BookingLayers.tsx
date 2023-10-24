@@ -4,7 +4,7 @@ import { Pane } from "react-leaflet";
 import { AtcContext, Booking } from "../modules/contexts/AtcProvider";
 import { useSnackbar } from "notistack";
 
-const TYPES_CENTER = ['CTR'];
+const TYPES_CENTER = ['CTR', 'FSS'];
 const TYPES_APPROACH = ['APP'];
 const TYPES_AERODROME = ['TWR', 'GND', 'DEL'];
 const TYPES_ALL = TYPES_CENTER.concat(TYPES_APPROACH).concat(TYPES_AERODROME);
@@ -44,9 +44,9 @@ const BookingLayers = ({}: BookingsLayerProps) => {
     }, [bookings]);
 
     useEffect(() => {
-        if (bookings.some(b => !TYPES_ALL.includes(b.positionTypeCode))) {
-            enqueueSnackbar({variant: 'warning', message: 'Found unknown booking type', preventDuplicate: true});
-        }
+        bookings.filter(b => !TYPES_ALL.includes(b.positionTypeCode)).forEach(b => {
+            enqueueSnackbar({variant: 'warning', message: `Found unknown booking type: ${b.positionTypeCode}`, preventDuplicate: true});
+        });
     }, [bookings]);
 
     return <>
