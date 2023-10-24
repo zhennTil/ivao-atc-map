@@ -1,0 +1,28 @@
+.map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.leaflet-control-attribution { display: none; }
+
+.userOverlay {
+    position: absolute;
+    z-index: 10000;
+    top: 8px;
+    right: 8px;
+    /* background: #f0f0f080; */
+    /* padding: 8px; */
+    /* border-radius: 8px; */
+}
+
+.sliderOverlay {
+    position: absolute;
+    z-index: 11000;
+    top: 100%;
+    right: 0;
+    margin-top: 32px;
+    background: #f0f0f080;
+}
