@@ -8,11 +8,11 @@
 
 .leaflet-control-attribution { display: none; }
 
-.userOverlay {
+.optionsOverlay {
     position: absolute;
     z-index: 10000;
-    top: 8px;
-    right: 8px;
+    top: 0.5rem;
+    right: 0.5rem;
     /* background: #f0f0f080; */
     /* padding: 8px; */
     /* border-radius: 8px; */
@@ -23,6 +23,20 @@
     z-index: 11000;
     top: 100%;
     right: 0;
-    margin-top: 32px;
+    margin-top: 2rem;
     background: #f0f0f080;
+}
+
+.infoOverlay {
+    position: absolute;
+    z-index: 10000;
+    bottom: 0;
+    right: 0;
+    background: #f0f0f080;
+    padding: 0.2rem;
+}
+
+.githubIcon {
+    width: 1rem;
+    height: 1rem;
 }
