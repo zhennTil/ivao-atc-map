@@ -6,8 +6,6 @@
     left: 0;
 }
 
-.leaflet-control-attribution { display: none; }
-
 .optionsOverlay {
     position: absolute;
     z-index: 10000;
@@ -35,8 +33,15 @@
     background: #f0f0f080;
     padding: 0.2rem;
 }
+/* .githubIcon {
+    display: inline !important;
+    vertical-align: baseline !important;
+    width: 1em;
+    height: 0.6669em;
+} */
 
 .githubIcon {
     width: 1rem;
     height: 1rem;
+    padding-top: 0.2rem;
 }
