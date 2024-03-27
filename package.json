@@ -14,7 +14,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.8",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.4",
     "notistack": "^3.0.1",
